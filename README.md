@@ -1,6 +1,6 @@
 ## Accessing tag as an environment variable inside a Docker container project
 
-If you need to know the current revision of Docker image in an API running inside the container you can use the docker build arguments combination with Docker variabele environment.
+If you need to know the current revision of Docker image in an API running inside the container you can use the docker build arguments combination with Docker variable environment.
 
 > Look ARG and ENV instructions inside the Dockerfile.
 
@@ -10,12 +10,12 @@ Build Docker image
 
 ```
 export CI_TAG=v1.0.1
-docker build --build-arg DOCKER_TAG=$CI_TAG -t jhapi:$CI_TAG .
+docker build --build-arg DOCKER_TAG=$CI_TAG -t my-app:$CI_TAG .
 ```
 
 Running API
 ```
-docker run -p 8080:8080 jhapi:$CI_TAG
+docker run -p 8080:8080 my-app:$CI_TAG
 ```
 
 Access endpoint

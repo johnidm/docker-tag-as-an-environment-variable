@@ -3,12 +3,12 @@ import json
 import os
 
 
-PROJECT_VERSION = os.getenv("PROJECT_VERSION", "no version")
+APP_VERSION = os.getenv("APP_VERSION", "no version")
 
 
 class ServiceHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        data = {"version": PROJECT_VERSION}
+        data = {"version": APP_VERSION}
 
         self.send_response(200)
         self.send_header("Content-type", "application/json")
@@ -20,5 +20,5 @@ host = "0.0.0.0"
 port = 8080
 
 server = HTTPServer((host, port), ServiceHandler)
-print(f"Running API version '{PROJECT_VERSION}' on http://{host}:{port}")
+print(f"Running API version '{APP_VERSION}' on http://{host}:{port}")
 server.serve_forever()
